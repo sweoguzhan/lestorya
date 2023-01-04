@@ -383,3 +383,12 @@
  .modaltext{
      text-align: center;
  }
+ .projectimg{
+     width: 100% !important;
+     height: auto !important;
+     margin: 20px 0 !important;
+     width: 300px !important;
+     height: 300px !important;
+     object-fit: contain !important;
+     border-radius: 10px;
+ }

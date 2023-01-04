@@ -2,14 +2,12 @@ import React from "react";
 import styled from "styled-components";
 // Components
 import ProjectBox from "../Elements/ProjectBox";
-import FullButton from "../Buttons/FullButton";
 // Assets
-import ProjectImg1 from "../../assets/img/projects/1.png";
-import ProjectImg2 from "../../assets/img/projects/2.png";
-import ProjectImg3 from "../../assets/img/projects/3.png";
-import ProjectImg4 from "../../assets/img/projects/4.png";
-import ProjectImg5 from "../../assets/img/projects/5.png";
-import ProjectImg6 from "../../assets/img/projects/6.png";
+import folders from "../../assets/img/3dfolderslogo.png";
+import iftarsayacı from "../../assets/img/iftarsayacıapp.jpeg";
+import walkino from "../../assets/img/walkinoapp.png";
+import okulsayacı from "../../assets/img/okulsayacıapp.png";
+import baatil from "../../assets/img/baatillogo.png";
 
 export default function Projects() {
   return (
@@ -23,21 +21,21 @@ export default function Projects() {
           <div className="row textCenter">
             <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
               <ProjectBox
-                img={ProjectImg1}
+                img={folders}
                 title="3D Folders"
                 text="Dijital 3D/2D modellerin ve tasarımların satıldığı e-pazar sistemi"
               />
             </div>
             <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
               <ProjectBox
-                img={ProjectImg2}
+                img={okulsayacı}
                 title="Okul Sayacı"
                 text="Google Play Store/App Store'da 1 Milyon üzeri indirmeye sahip mobil uygulama "
               />
             </div>
             <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
               <ProjectBox
-                img={ProjectImg3}
+                img={iftarsayacı}
                 title="İftar/Sahur Sayacı"
                 text="Google Play Store/App Store'da 10000+ kullanıcıya aktif mobil uygulama"
               />
@@ -46,21 +44,21 @@ export default function Projects() {
           <div className="row textCenter">
             <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
               <ProjectBox
-                img={ProjectImg4}
+                img={baatil}
                 title="Baatıl"
                 text="Yapay zeka ile geliştirilmiş fal uygulaması"
               />
             </div>
             <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
               <ProjectBox
-                img={ProjectImg5}
+                img={walkino}
                 title="Walkino"
                 text="Native olarak geliştirilmiş,yürüdükçe ödüller kazandıran mobil uygulama."
               />
             </div>
             <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
               <ProjectBox
-                img={ProjectImg6}
+                img={walkino}
                 title="Drift Rush"
                 text="Hyper Casual olarak tasarlanmış mobil oyun/uygulama."
 
