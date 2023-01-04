@@ -2,10 +2,29 @@ import React from "react";
 import {useState} from "react";
 import GetPrice from "../components/Sections/GetPrice";
 import {GrLocation} from 'react-icons/gr';
-import {AiOutlineMail,AiOutlinePhone} from 'react-icons/ai'
+import {AiOutlineClose, AiOutlineMail, AiOutlinePhone} from 'react-icons/ai'
 import { send } from 'emailjs-com';
+import Modal from 'react-modal';
+import MailImg from "../assets/img/mail.png";
 
 export default function Landing() {
+    const customStyles = {
+        content: {
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            position:'relative',
+            width : '70%',
+            maxWidth:'400px',
+            transform: 'translate(-50%, -50%)',
+        },
+    };
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+    function closeModal() {
+        setIsOpen(false);
+    }
     const [toSend, setToSend] = useState({
         name: '',
         surname:'',
@@ -23,6 +42,8 @@ export default function Landing() {
         )
             .then((response) => {
                 console.log('SUCCESS!', response.status, response.text);
+                setIsOpen(true);
+
             })
             .catch((err) => {
                 console.log('FAILED...', err);
@@ -88,6 +109,18 @@ export default function Landing() {
                                 <input type="submit"  className='send-btn' value="Gönder"/>
                             </div>
                         </form>
+                        {modalIsOpen && (
+                            <Modal
+                                isOpen={modalIsOpen}
+                                onRequestClose={closeModal}
+                                style={customStyles}
+                                contentLabel="Example Modal"
+                            >
+                                <AiOutlineClose  className="closemodal"   onClick={closeModal} />
+                                <img src={MailImg} className="emailsuccesimg" />
+                                <h3 className="modaltext">Mailinize en kısa sürede dönüş yapılacaktır.</h3>
+                            </Modal>
+                        )}
                     </div>
                 </div>
             </div>

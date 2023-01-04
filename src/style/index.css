@@ -69,6 +69,12 @@
     .container {
       padding: 0 15px;
     }
+      .row{
+          margin: 0;
+      }
+      .flexNullCenter{
+          justify-content: center;
+      }
   }
   .regular {
     font-weight: 400!important;
@@ -329,3 +335,51 @@
 .projects-div{
     margin-bottom: 30px;
 }
+.navbarul{
+    text-align: end;
+}
+.homeicn{
+    text-align: center;
+}
+.getpricehome{
+    display: flex;
+    align-content: center;
+    justify-content: end;
+}
+..lestoryalogoprice{
+    width: 200px !important;
+    display: flex !important;
+    margin-right: 20px !important;
+    justify-content: center !important;
+}
+ .lestoryaimgprice{
+     width: 200px;
+ }
+ .submitbtn{
+     order: 1px solid #7620ff;
+     background-color: #7620ff;
+     width: 100%;
+     padding: 15px;
+     outline: none;
+     color: #fff;
+ }
+ .flexdiv{
+     display: flex;
+
+ }
+ .emailsuccesimg{
+     width: 100%;
+     display: flex;
+     margin: auto;
+ }
+ .closemodal{
+     position: absolute;
+     right: 15px;
+     top: 5px;
+     font-size: 20px;
+     cursor: pointer;
+     z-index: 999;
+ }
+ .modaltext{
+     text-align: center;
+ }

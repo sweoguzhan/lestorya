@@ -1,12 +1,62 @@
 import React from "react";
 import styled from "styled-components";
+import {useState} from "react";
+
 // Assets
 import ContactImg1 from "../../assets/img/contact-1.png";
 import ContactImg2 from "../../assets/img/contact-2.png";
 import ContactImg3 from "../../assets/img/contact-3.png";
 import {GrLocation} from 'react-icons/gr';
-import {AiOutlineMail} from 'react-icons/ai';
+import { send } from 'emailjs-com';
+import Modal from 'react-modal';
+import {AiOutlineMail,AiOutlineClose} from 'react-icons/ai';
+import MailImg from "../../assets/img/mail.png"
 export default function Contact() {
+
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      position:'relative',
+      width : '70%',
+      maxWidth:'400px',
+      transform: 'translate(-50%, -50%)',
+    },
+  };
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  const [toSend, setToSend] = useState({
+    name: '',
+    email:'',
+    subject:'',
+    message: ''
+  });
+  function closeModal() {
+    setIsOpen(false);
+  }
+  const onSubmit = (e) => {
+    e.preventDefault();
+    send(
+        'service_h0em5nd',
+        'template_a6xnsw9',
+        toSend,
+        'iVu5a9zt-QWpmDS5w'
+    )
+        .then((response) => {
+          console.log('SUCCESS!', response.status, response.text);
+          setIsOpen(true);
+
+        })
+        .catch((err) => {
+          console.log('FAILED...', err);
+        });
+  };
+  const handleChange = (e) => {
+    setToSend({ ...toSend, [e.target.name]: e.target.value });
+  };
   return (
     <Wrapper id="contact">
       <div className="lightBg">
@@ -20,19 +70,32 @@ export default function Contact() {
           </HeaderInfo>
           <div className="row" style={{ paddingBottom: "30px" }}>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-              <Form>
-                <label className="font13">Ad:</label>
-                <input type="text" id="fname" name="fname" className="font20 extraBold" />
+              <Form onSubmit={onSubmit} >
+                <label className="font13">Ad Soyad:</label>
+                <input type="text" id="fname" name="name"  value={toSend.name} onChange={handleChange} className="font20 extraBold" />
                 <label className="font13">Email:</label>
-                <input type="text" id="email" name="email" className="font20 extraBold" />
+                <input type="text" id="email" name="email"  value={toSend.email} onChange={handleChange} className="font20 extraBold" />
                 <label className="font13">Konu:</label>
-                <input type="text" id="subject" name="subject" className="font20 extraBold" />
-                <textarea rows="4" cols="50" type="text" id="message" name="message" className="font20 extraBold" />
+                <input type="text" id="subject" name="subject" value={toSend.subject}  onChange={handleChange} className="font20 extraBold" />
+                <textarea rows="4" cols="50" type="text" id="message" name="message" value={toSend.message}  onChange={handleChange} className="font20 extraBold" />
+                <div className="button">
+                  <button type="submit"  className='send-btn' value="Gönder"> Gönder</button>
+                </div>
               </Form>
-              <SumbitWrapper className="flex">
-                <ButtonInput type="submit" value="Gönder " className="pointer animate radius8" style={{ maxWidth: "220px" }} />
-              </SumbitWrapper>
+
             </div>
+            {modalIsOpen && (
+                <Modal
+                    isOpen={modalIsOpen}
+                    onRequestClose={closeModal}
+                    style={customStyles}
+                    contentLabel="Example Modal"
+                >
+                  <AiOutlineClose  className="closemodal"   onClick={closeModal} />
+                  <img src={MailImg} className="emailsuccesimg" />
+                  <h3 className="modaltext">Mailinize en kısa sürede dönüş yapılacaktır.</h3>
+                </Modal>
+            )}
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 flex">
               <div className='contact-div'>
                 <div className='contact-title'>

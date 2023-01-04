@@ -143,6 +143,8 @@
     padding: 15px;
     outline: none;
     color: #fff;
+    cursor: pointer;
+
 }
 .topic-paragraph{
     margin-bottom: 20px;

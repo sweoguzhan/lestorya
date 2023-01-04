@@ -18,12 +18,10 @@ export default function Contact() {
           <InnerWrapper className="flexSpaceCenter" style={{ padding: "30px 0" }}>
 
             <StyleP className="whiteColor font13">
-              Lestorya Software Technologies - All Rights Reserved
+              Lestorya Yazılım Hizmetleri - Tüm Hakları Saklıdır
             </StyleP>
 
-            <Link className="  lestoryalogo  pointer flexNullCenter" to="home" smooth={true}>
-              <img  className='lestoryaimg' src={Logo}  />
-            </Link>
+
 
 
 

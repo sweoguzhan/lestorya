@@ -12,7 +12,7 @@ export default function Header() {
     <Wrapper id="home" className="container flexSpaceCenter">
       <LeftSide className="flexCenter">
         <div>
-          <h1 className="extraBold font60">Lestroya Software Technologies</h1>
+          <h1 className="textCenter  extraBold font40">Lestroya Yazılım Hizmetleri</h1>
 
 
         </div>

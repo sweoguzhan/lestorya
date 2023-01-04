@@ -24,7 +24,6 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
             onClick={() => toggleSidebar(!sidebarOpen)}
             activeClass="active"
             className="whiteColor"
-            style={{ padding: "10px 15px" }}
             to="home"
             spy={true}
             smooth={true}
@@ -38,7 +37,6 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
             onClick={() => toggleSidebar(!sidebarOpen)}
             activeClass="active"
             className="whiteColor"
-            style={{ padding: "10px 15px" }}
             to="services"
             spy={true}
             smooth={true}
@@ -52,7 +50,6 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
             onClick={() => toggleSidebar(!sidebarOpen)}
             activeClass="active"
             className="whiteColor"
-            style={{ padding: "10px 15px" }}
             to="projects"
             spy={true}
             smooth={true}
@@ -66,7 +63,6 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
             onClick={() => toggleSidebar(!sidebarOpen)}
             activeClass="active"
             className="whiteColor"
-            style={{ padding: "10px 15px" }}
             to="blog"
             spy={true}
             smooth={true}
@@ -75,13 +71,26 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
             Hakkimizda
           </Link>
         </li>
+        <li className="semiBold font15 pointer">
+          <a
+              onClick={() => toggleSidebar(!sidebarOpen)}
+              activeClass="active"
+              className="whiteColor"
+
+              href="/price"
+              spy={true}
+              smooth={true}
+              offset={-60}
+          >
+            Fiyat Teklifi
+          </a>
+        </li>
 
         <li className=" flex  semiBold font15 pointer">
           <Link
             onClick={() => toggleSidebar(!sidebarOpen)}
             activeClass="active"
             className="whiteColor"
-            style={{ padding: "10px 15px" }}
             to="contact"
             spy={true}
             smooth={true}
@@ -91,10 +100,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
           </Link>
         </li>
       </UlStyle>
-     <div className='lestoryalogosidebar'>
-       <img  src={Logo} />
 
-     </div>
     </Wrapper>
   );
 }

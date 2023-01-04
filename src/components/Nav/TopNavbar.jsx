@@ -9,6 +9,14 @@ import LogoIcon from "../../assets/svg/Logo";
 import BurgerIcon from "../../assets/svg/BurgerIcon";
 import Logo from '../lestorya.png';
 export default function TopNavbar() {
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  React.useEffect(() => {
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    setIsMobile(isMobile);
+  }, []);
+
   const [y, setY] = useState(window.scrollY);
   const [sidebarOpen, toggleSidebar] = useState(false);
   useEffect(() => {
@@ -25,16 +33,16 @@ export default function TopNavbar() {
       {sidebarOpen && <Backdrop toggleSidebar={toggleSidebar} />}
       <Wrapper className="flexCenter animate whiteBg" style={y > 100 ? { height: "60px" } : { height: "80px" }}>
         <NavInner className="container flexSpaceCenter">
-          <Link className="  lestoryalogo  pointer flexNullCenter" to="home" smooth={true}>
-              <img  className='lestoryaimg' src={Logo}  />
+          <Link className=" lestoryalogo  pointer flexNullCenter"      to="home" smooth={true}  >
+              <img  className='lestoryaimg' src={Logo}   />
           </Link>
           <BurderWrapper  className="pointer" onClick={() => toggleSidebar(!sidebarOpen)}>
             <BurgerIcon />
           </BurderWrapper>
-          <UlWrapper className="flexNullCenter">
+          <UlWrapper className=" navbarul flexNullCenter">
             <li className="semiBold font15 pointer">
-              <Link activeClass="active" style={{ padding: "10px 15px" }} to="home" spy={true} smooth={true} offset={-80}>
-               Anasayfa
+              <Link activeClass="active" style={{ padding: "10px 15px" }} to="home" spy={true} smooth={true} offset={-80}  >
+                 <a onClick={()=> {isMobile? (window.location.href= "/") : (window.location.href="/")} }>Anasayfa</a>
               </Link>
             </li>
             <li className="semiBold font15 pointer">
